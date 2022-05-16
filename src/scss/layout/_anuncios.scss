@@ -1,0 +1,51 @@
+.contenedor-anuncios{
+  @include tablet{
+    @include grid(3,2rem);
+  }
+}
+
+.anuncio{
+  background-color: lighten($gris,5); /* lighten Sirve para cambiar el tono de un color seleccionado*/
+  border: 1px solid darken($gris,10);
+  margin-bottom: 2rem;
+
+  .contenido-anuncio{
+    padding: 2rem;
+  }
+
+
+
+  h3,p{
+    margin: 0;
+  }
+}
+
+.precio{
+  color: $verde;
+  font-weight: $bold;
+  font-size: 2.4rem;
+}
+
+.iconos-caracteristicas{
+  display: flex; /*Con flex siempre se acomodan en fila si estan en columna*/
+  list-style: none;
+  padding: 0;
+  max-width: 40rem;
+
+  li{ /*Para ajustar los iconocos*/
+    flex: 1; /*Si ponemos esto se distribuyen pero como no son cuadrados perfectos se ven mal*/
+    display: flex;
+  }
+
+  img{
+    flex: 0 0 5rem;
+    margin-right: 1rem;
+  }
+  p{
+    font-weight: $black;
+  }
+}
+
+.resumen-propiedad{
+  padding: 1rem;
+}
