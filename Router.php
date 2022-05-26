@@ -4,7 +4,6 @@ namespace MVC;
 
 class Router
 {
-
     public $rutasGET=[];
     public $rutasPOST=[];
 
@@ -17,12 +16,20 @@ class Router
     }
 
     public function comprobarRutas(){
-        $urlActual=$_SERVER['PATH_INFO']??'/';
+        $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
+
+        if(strpos($urlActual, '?')){ // tuve que crear este if para que cuando sea un get, tome el redirect y no el request
+            $urlActual = $_SERVER['REDIRECT_URL'];
+        }
+
         $metodo= $_SERVER['REQUEST_METHOD'];
 
-        if($metodo=='GET'){
+
+        if($metodo==='GET'){
             $fn= $this->rutasGET[$urlActual]?? null;
+
         }else{
+
             $fn= $this->rutasPOST[$urlActual] ?? null;
         }
 
