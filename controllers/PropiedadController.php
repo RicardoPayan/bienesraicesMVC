@@ -11,6 +11,7 @@ class PropiedadController{
     public static function index(Router $router){
 
         $propiedades=Propiedad::all();
+        $vendedores=Vendedor::all();
         $resultado=$_GET['resultado'] ?? null;
 
 
@@ -18,7 +19,8 @@ class PropiedadController{
             //Esta sintaxis no declara una variable como tal, solo estamos pasadno un arreglo
             //Se declara una atributo en del arreglo, que puede ser lo que sea, entonces la variable $$key guardara ese atributo con el nombre que sea
             'propiedades'=>$propiedades,
-            'resultado'=>$resultado
+            'resultado'=>$resultado,
+            'vendedores'=>$vendedores
 
         ]);
     }
