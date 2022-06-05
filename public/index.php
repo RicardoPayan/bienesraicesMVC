@@ -7,7 +7,7 @@ use Controllers\PaginasController;
 use Controllers\LoginController;
 $router=new Router();
 
-
+//------------------------------------------------------------------------------------------------------------------
 //ZONA PRIVADA
 //Se define la URL, se le pasa el controlador y por ultimo se le pasa un metodo de ese controlador; que construye la vista
 $router->get('/admin',[PropiedadController::class,'index']);
@@ -24,7 +24,7 @@ $router->post('/vendedores/crear',[VendedorController::class,'crear']);
 $router->get('/vendedores/actualizar',[VendedorController::class,'actualizar']);
 $router->post('/vendedores/actualizar',[VendedorController::class,'actualizar']);
 $router->post('/vendedores/eliminar',[VendedorController::class,'eliminar']);
-
+//------------------------------------------------------------------------------------------------------------------
 
 //ZONA PUBLICA
 //Rutas paginas visitantes

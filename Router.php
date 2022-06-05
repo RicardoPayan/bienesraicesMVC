@@ -16,6 +16,16 @@ class Router
     }
 
     public function comprobarRutas(){
+
+        session_start();
+        $auth=$_SESSION['login'] ?? null;
+
+        //Arreglo de rutas protegidas
+        $rutasProtegidas=['/admin','/propiedades/crear','/propiedades/crear','/propiedades/actualizar',
+            '/propiedades/eliminar','/vendedores/crear','/vendedores/actualizar','/vendedores/eliminar'];
+
+
+
         $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
 
         if(strpos($urlActual, '?')){ // tuve que crear este if para que cuando sea un get, tome el redirect y no el request
@@ -33,7 +43,14 @@ class Router
             $fn= $this->rutasPOST[$urlActual] ?? null;
         }
 
+        //Proteger las rutas
+        //in_array verifica si existe un elemento de un arreglo en otro
+        if(in_array($urlActual, $rutasProtegidas) && !$auth){
+            header('Location: /');
+        }
+
         if($fn){
+            //La URL existe y hay una funcion asociada
             call_user_func($fn,$this);
         }else{
             echo 'Pagina no encontrada';
