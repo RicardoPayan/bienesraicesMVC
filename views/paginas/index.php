@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-    <h1>Más sobre nosotros</h1>
+    <h2 data-cy='heading-iconos'>Más sobre nosotros</h2>
     <?php include "iconos.php";?>
 </main>
 
@@ -12,18 +12,18 @@
     ?>
 
     <div class="ver-todas alinear-derecha">
-        <a href="/propiedades" class="boton-verde">Ver todas</a>
+        <a href="/propiedades" class="boton-verde" data-cy="todas-propiedades">Ver todas</a>
     </div>
 </section> <!--.seccion-->
 
-<section class="imagen-contacto">
+<section class="imagen-contacto" data-cy="imagen-contacto">
     <h2>Encuentra la casa de tus sueños</h2>
     <p>Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad</p>
-    <a href="contacto.php" class="boton-amarillo">Contactanos</a>
+    <a href="/contacto" class="boton-amarillo" >Contactanos</a>
 </section>
 
 <div class="contenedor seccion seccion-inferior">
-    <section class="blog">
+    <section data-cy="blog" class="blog">
         <h3>Nuestro Blog</h3>
 
         <article class="entrada-blog"> <!--Para secciones de blog-->
@@ -71,7 +71,7 @@
         </article>
     </section> <!--.blog-->
 
-    <section class="testimoniales">
+    <section data-cy="testimoniales" class="testimoniales">
         <h3>Testimoniales</h3>
 
         <div class="testimonial">
